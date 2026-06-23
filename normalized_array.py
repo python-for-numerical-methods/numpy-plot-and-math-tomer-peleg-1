@@ -13,12 +13,14 @@ def normalized_array(data):
     מחזירה:
     np.array: מערך מנורמל. אם כל הערכים במערך זהים, יש להחזיר מערך של אפסים.
     """
-    # המרת הקלט ל-numpy array לצורך חישובים וקטוריים
     data = np.array(data)
+    min_val = np.min(data)
+    max_val = np.max(data)
     
-    # --- כיתבו את הקוד שלכם כאן ---
-    pass
-    # חשוב לזכור להחליף את pass ב- return
+    if min_val == max_val:
+        return np.zeros_like(data, dtype=float)
+        
+    return (data - min_val) / (max_val - min_val)
 
 if __name__ == "__main__":
     # כאן הסטודנטים יכולים להריץ בדיקה עצמית מהירה
